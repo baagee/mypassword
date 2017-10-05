@@ -1,0 +1,300 @@
+[ 2017-10-03T13:50:58+08:00 ] 223.104.185.97 /pass/index.php/index/personalset.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000062s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000025s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.000363s ]
+SQL: SELECT * FROM `user` WHERE ( id=1 )  [ RunTime:0.000213s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000018s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000102s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.006423s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006461s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000013s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000052s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000026s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000051s ]
+
+[ 2017-10-03T13:55:35+08:00 ] 223.104.185.97 /pass/index.php/index/index.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000064s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000026s ]
+SQL: SHOW COLUMNS FROM `pass` [ RunTime:0.000422s ]
+SQL: SELECT * FROM `pass` WHERE ( `user_id` = 1 )  [ RunTime:0.000264s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `pass` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000148s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000015s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000104s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008117s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008159s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000012s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000040s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000059s ]
+
+[ 2017-10-03T13:57:32+08:00 ] 223.104.185.97 /pass/index.php/index/analyse.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000018s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000063s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000025s ]
+ERR: 非法操作:analyse
+
+[ 2017-10-03T13:57:39+08:00 ] 223.104.185.97 /pass/index.php/index/index.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000017s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000064s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000025s ]
+SQL: SHOW COLUMNS FROM `pass` [ RunTime:0.000399s ]
+SQL: SELECT * FROM `pass` WHERE ( `user_id` = 1 )  [ RunTime:0.000236s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `pass` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000146s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000015s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000105s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007939s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007978s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000012s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000039s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000058s ]
+
+[ 2017-10-03T13:57:49+08:00 ] 223.104.185.97 /pass/index.php/index/updatepasses/pid/59d18da666d72.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000018s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000066s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000025s ]
+SQL: SHOW COLUMNS FROM `pass` [ RunTime:0.000441s ]
+SQL: SELECT * FROM `pass` WHERE ( `uuid` = '59d18da666d72' ) AND ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000239s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000045s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000090s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.005588s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005631s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000016s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000055s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000012s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000026s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000052s ]
+
+[ 2017-10-03T13:58:14+08:00 ] 223.104.185.97 /pass/index.php/index/updatepasses/pid/59d18da666d72.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000065s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000025s ]
+SQL: SHOW COLUMNS FROM `pass` [ RunTime:0.000407s ]
+SQL: SELECT * FROM `pass` WHERE ( `uuid` = '59d18da666d72' ) AND ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000238s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000112s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.005874s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005933s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000036s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000012s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000058s ]
+
+[ 2017-10-03T13:58:18+08:00 ] 223.104.185.97 /pass/index.php/index/index.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000031s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000064s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000024s ]
+SQL: SHOW COLUMNS FROM `pass` [ RunTime:0.000394s ]
+SQL: SELECT * FROM `pass` WHERE ( `user_id` = 1 )  [ RunTime:0.000237s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `pass` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000148s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000016s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000101s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007889s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007927s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000012s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000038s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000055s ]
+
+[ 2017-10-03T14:00:17+08:00 ] 223.104.185.97 /pass/index.php/index/index.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000044s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000080s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000026s ]
+SQL: SHOW COLUMNS FROM `pass` [ RunTime:0.000407s ]
+SQL: SELECT * FROM `pass` WHERE ( `user_id` = 1 )  [ RunTime:0.000300s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `pass` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000152s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000014s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000127s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008711s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008754s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000012s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000040s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000044s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000091s ]
+
+[ 2017-10-03T14:01:00+08:00 ] 223.104.185.97 /pass/index.php/index/index.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000063s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000024s ]
+SQL: SHOW COLUMNS FROM `pass` [ RunTime:0.000401s ]
+SQL: SELECT * FROM `pass` WHERE ( `user_id` = 1 )  [ RunTime:0.000250s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `pass` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000151s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000017s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000055s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008030s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008069s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000046s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000055s ]
+
+[ 2017-10-03T14:01:13+08:00 ] 223.104.185.97 /pass/index.php/index/addpass.html
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000254s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000027s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000064s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000027s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000016s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.005996s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006044s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000010s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000036s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000013s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000079s ]
+
+[ 2017-10-03T21:19:18+08:00 ] 101.226.102.60 /pass/index.php/home/index/login.html
+ERR: 无法加载控制器:Home
+
+[ 2017-10-03T21:19:25+08:00 ] 101.226.102.60 /pass/index.php/home/index/login.html
+ERR: 无法加载控制器:Home
+
+[ 2017-10-03T21:19:28+08:00 ] 117.185.27.115 /pass/index.php/home/index/login.html
+ERR: 无法加载控制器:Home
+
+[ 2017-10-03T21:19:28+08:00 ] 101.226.102.60 /pass/index.php/home/index/login.html
+ERR: 无法加载控制器:Home
+
+[ 2017-10-03T21:23:57+08:00 ] 101.226.125.16 /pass/index.php/home/index/login.html
+ERR: 无法加载控制器:Home
+
+[ 2017-10-03T21:48:36+08:00 ] 223.104.185.125 /pass/index.php/home/index/login
+ERR: 无法加载控制器:Home
+
+[ 2017-10-03T21:49:14+08:00 ] 223.104.185.125 /pass/index.php/home/index/login
+ERR: 无法加载控制器:Home
+
+[ 2017-10-03T21:49:24+08:00 ] 223.104.185.125 /pass/index.php/home/index/login
+ERR: 无法加载控制器:Home
+

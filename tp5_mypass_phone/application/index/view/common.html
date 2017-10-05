@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$title}</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="apple-touch-icon-precomposed" href="/static/images/favicon.ico">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <link rel="icon" type="image/png" href="/static/images/favicon.ico">
+    {load href="/static/css/amazeui.min.css"}
+    {block name="css"}{/block}
+</head>
+<body>
+<!-- Header -->
+<header data-am-widget="header" class="am-header am-header-default">
+    <h1 class="am-header-title">
+        <a href="#title-link">{$title}</a>
+    </h1>
+</header>
+
+<!-- Menu -->
+<nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+    <a href="javascript: void(0)" class="am-menu-toggle">
+        <i class="am-menu-toggle-icon am-icon-bars"></i>
+    </a>
+    <div class="am-offcanvas">
+        <div class="am-offcanvas-bar" style="width: 50%">
+            <img src="/static/images/avatar.png" style="width: 100%">
+            <ul class="am-menu-nav sm-block-grid-1">
+
+                <li>
+                    <a href="/pass/index.html">
+                        <i class="am-icon-list-alt"></i>
+                        <span class="am-navbar-label">查看密码</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pass/add.html">
+                        <span class="am-icon-plus"></span>
+                        <span class="am-navbar-label">创建密码</span>
+                    </a>
+                </li>
+                <li>
+                <li>
+                    <a href="/user/set.html">
+                        <span class="am-icon-gear"></span>
+                        <span class="am-navbar-label">个人设置</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/user/logout.html">
+                        <span class="am-icon-sign-out"></span>
+                        <span class="am-navbar-label">退出登录</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <img src="/static/images/footimg.png" style="width: 100%;margin-bottom: 0;position: fixed;bottom: 10px">
+        </div>
+    </div>
+</nav>
+
+{block name="content_main"}{/block}
+{load href="/static/js/jquery.min.js,/static/js/amazeui.min.js,/static/layer_mobile/layer.js,/static/js/jquery.cookie.js,/static/js/clipboard.min.js,/static/js/app.js"}
+{block name="javascript"}{/block}
+</body>
+</html>

@@ -1,0 +1,102 @@
+
+<extend name='./common' />
+<block name='content_main'>
+  <form class="am-form" accept="" method="post" id="addpassform">
+  <fieldset>
+
+    <div class="am-form-group">
+      <label for="name">密码名称</label>
+      <input type="text" name="name" id="name" placeholder="密码名称">
+    </div>
+
+    <div class="am-form-group">
+      <label for="username">用户名</label>
+      <input type="text" name="username" id="username" placeholder="用户名">
+    </div>
+
+    <div class="am-form-group">
+      <label for="doc-ipt-pwd-1">密码</label>
+      <input type="text" name="password" id="doc-ipt-pwd-1" placeholder="设置个密码吧" onkeydown="CheckIntensity($(this).val())">
+      <div class="am-progress passinfo" style="margin-bottom: 0" id="qazppp">
+                    
+      </div>
+    </div>
+
+    <div class="am-form-group">
+      <label for="doc-ta-1">备注说明</label>
+      <textarea rows="5" name="remark" id="doc-ta-1"></textarea>
+    </div>
+
+    <p><button type="submit" style="width: 100%;" class="am-btn am-btn-primary">添 加</button></p>
+  </fieldset>
+</form>
+</block>
+<block name='javascript'>
+  <script type="text/javascript">
+    function CheckIntensity(string) {
+      if(string.length >=6) {
+        if(/[a-zA-Z]+/.test(string) && /[0-9]+/.test(string) && /\W+\D+/.test(string)) {
+          var html='<div class="am-progress-bar am-progress-bar-warning" style="width: 33%">弱</div>\
+                    <div class="am-progress-bar am-progress-bar-secondary"  style="width: 33%">中</div>\
+                    <div class="am-progress-bar am-progress-bar-success"  style="width: 34%">强</div>';
+        }else if(/[a-zA-Z]+/.test(string) || /[0-9]+/.test(string) || /\W+\D+/.test(string)) {
+          if(/[a-zA-Z]+/.test(string) && /[0-9]+/.test(string)) {
+            var html='<div class="am-progress-bar am-progress-bar-warning" style="width: 33%">弱</div>\
+                    <div class="am-progress-bar am-progress-bar-secondary"  style="width: 33%">中</div>';
+          }else if(/\[a-zA-Z]+/.test(string) && /\W+\D+/.test(string)) {
+            var html='<div class="am-progress-bar am-progress-bar-warning" style="width: 33%">弱</div>\
+                    <div class="am-progress-bar am-progress-bar-secondary"  style="width: 33%">中</div>';
+          }else if(/[0-9]+/.test(string) && /\W+\D+/.test(string)) {
+            var html='<div class="am-progress-bar am-progress-bar-warning" style="width: 33%">弱</div>\
+                    <div class="am-progress-bar am-progress-bar-secondary"  style="width: 33%">中</div>';
+          }else{
+            var html='<div class="am-progress-bar am-progress-bar-warning" style="width: 33%">弱</div>';
+          }
+        }
+      }else if(string.length>0 && string.length<6){
+        var html='<div class="am-progress-bar am-progress-bar-warning" style="width: 33%">弱</div>';
+      }else{
+        var html='';
+      }
+      $("#qazppp").html(html);
+      return html;
+    }
+
+    $("#addpassform").submit(function(){
+      $('button[type="submit"]').attr('disabled', 'disabled');
+      $.ajax({
+        url: '__SELF__',
+        type: 'POST',
+        dataType: 'json',
+        data: $(this).serialize(),
+      })
+      .done(function(res) {
+        if(res.status){
+          layer.open({
+            content: res.msg
+            ,skin: 'msg'
+            ,time: 2 //2秒后自动关闭
+          });
+          $("#addpassform")[0].reset();
+        }else{
+          layer.open({
+            content: res.msg
+            ,btn: '我知道了'
+          });
+        }
+      })
+      .fail(function() {
+        layer.open({
+          content: '未知原因错误'
+          ,btn: '我知道了'
+        });
+        console.log("error");
+      })
+      .always(function() {
+        $('button[type="submit"]').removeAttr('disabled');
+      });
+      
+      return false;
+    });
+  </script>
+</block>

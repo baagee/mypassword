@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>密码管理器登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="apple-touch-icon-precomposed" href="/static/images/favicon.ico">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <link rel="icon" type="image/png" href="/static/images/favicon.ico">
+    {load href="/static/css/amazeui.min.css"}
+    <style>
+        .header {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="am-g">
+        <img src="/static/images/logo.png" style="width: 70%;">
+    </div>
+    <hr />
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <form method="post" class="am-form" id="login_form">
+            <label for="phone">手机号:</label>
+            <input type="text" name="phone" id="phone" value="" placeholder="请输入正确的手机号">
+            <br>
+            <label for="code">验证码:</label>
+            <div class="am-input-group">
+                <input type="text" class="am-form-field" id="code" name="code" value="" autocomplete="off" placeholder="请输入手机号验证码">
+      <span class="am-input-group-btn">
+        <button class="am-btn am-btn-primary" type="button" id="sendCodeButton">发送验证码</button>
+      </span>
+            </div>
+            <br>
+            <label for="password">密码:</label>
+            <input type="password" name="password" id="password" value="" placeholder="请输入登录密码">
+            <br>
+            <div class="am-cf">
+                <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm" style="width: 100%;">
+            </div>
+            <hr>
+            <div style="text-align: center;">
+                还没注册？
+                <a href="/user/register.html">前往注册</a>
+            </div>
+        </form>
+        <hr>
+    </div>
+</div>
+{load href="/static/js/jquery.min.js,/static/js/amazeui.min.js,/static/layer_mobile/layer.js,/static/js/jquery.cookie.js,/static/js/clipboard.min.js,/static/js/app.js"}
+<script type="text/javascript">
+    {if condition="time()-session('time')<60"}
+        $("#sendCodeButton").attr('disabled', 'disabled');
+        for(i=1;i<=<?php echo 60-(time()-session('time'));?>;i++) {
+            window.setTimeout("update_p(" + i + ","+<?php echo 60-(time()-session('time'));?>+")", i * 1000);
+        }
+    {/if}
+</script>
+</body>
+</html>

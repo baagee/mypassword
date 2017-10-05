@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>密码管理器注册</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="apple-touch-icon-precomposed" href="/static/images/favicon.ico">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <link rel="icon" type="image/png" href="/static/images/favicon.ico">
+    {load href="/static/css/amazeui.min.css"}
+    <style>
+        .header {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="am-g">
+        <img src="/static/images/logo.png" style="width: 70%;">
+    </div>
+    <hr />
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <form method="post" class="am-form" id="register_form">
+            <label for="email">邮箱:</label>
+            <input type="email" name="email" id="email" value="" placeholder="请输入正确的邮箱" onchange="checkEmail($(this).val())">
+            <br>
+            <label for="code">验证码:</label>
+            <div class="am-input-group">
+                <input type="text" class="am-form-field" id="code" name="code" value="" autocomplete="off" placeholder="请输入邮箱验证码">
+      <span class="am-input-group-btn">
+        <button class="am-btn am-btn-primary" disabled="disabled" type="button" id="sendCodeButton">发送验证码</button>
+      </span>
+            </div>
+            <br>
+            <label for="key">加密密钥:</label>
+            <input type="password" name="key" id="key" value="" placeholder="请输入密码加密密钥">
+
+            <br>
+            <label for="password">密码:</label>
+            <input type="password" name="password" id="password" value="" placeholder="请输入登录密码">
+            <br>
+            <label for="rpassword">确认密码:</label>
+            <input type="password" name="rpassword" id="rpassword" value="" placeholder="请输入登录密码">
+            <br>
+            <div class="am-cf">
+                <input type="submit" disabled="disabled" name="" value="注 册"  class="am-btn am-btn-primary am-btn-sm" style="width: 100%;">
+            </div>
+            <hr>
+            <div style="text-align: center;">
+                已经注册？
+                <a href="/user/login.html">前往登录</a>
+            </div>
+        </form>
+        <hr>
+    </div>
+</div>
+{load href="/static/js/jquery.min.js,/static/js/amazeui.min.js,/static/layer_mobile/layer.js,/static/js/jquery.cookie.js,/static/js/clipboard.min.js,/static/js/app.js"}
+<style type="text/css">
+    .layui-m-layercont{
+        text-align: left!important;
+    }
+</style>
+<script type="text/javascript">
+    // 弹框弹出时背景不能滚动
+    $('html,body').css({
+        height: '100%',
+        overflow: 'hidden'
+    });
+    layer.open({
+        content: '本密码管理系统做了一下安全措施：<br>1，每个人可以设置自己独一无二的密钥来加密密码，并且密钥经过加密保存的。<br>2：登录使用邮箱验证，需要您登录邮箱获取临时验证码才可登录。<br>3：登录通知功能，如果不是本人登录，立马通知您修改密码',
+        btn: '我知道了',
+        shadeClose: false,
+        yes: function(){
+            $('html,body').css({
+                height: '',
+                overflow: ''
+            });
+            layer.closeAll();
+        }
+    });
+</script>
+</body>
+</html>

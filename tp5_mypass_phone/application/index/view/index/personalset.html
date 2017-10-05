@@ -1,0 +1,101 @@
+
+{extend name='./common' }
+{block name='content_main'}
+    <div data-am-widget="tabs"
+         class="am-tabs am-tabs-d2"
+    >
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active"><a href="[data-tab-panel-0]">修改密码</a></li>
+            <li class=""><a href="[data-tab-panel-1]">修改密钥</a></li>
+            <li class=""><a href="[data-tab-panel-2]">更换手机</a></li>
+        </ul>
+        <div class="am-tabs-bd">
+            <div data-tab-panel-0 class="am-tab-panel am-active">
+                <div class="am-alert am-alert-success" data-am-alert>
+                    <button type="button" class="am-close">&times;</button>
+                    <p>修改密码管理器登录密码</p>
+                </div>
+                <form class="am-form" accept="" method="post" id="updatepassform">
+                    <fieldset>
+                        <input type="hidden" name="usa" value="password">
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-1">当前密码</label>
+                            <input type="password" name="opassword" id="doc-ipt-pwd-1" placeholder="当前密码">
+                        </div>
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2">新密码</label>
+                            <input type="password" name="password" id="doc-ipt-pwd-2" placeholder="新密码">
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-3">确认新密码</label>
+                            <input type="password" name="rpassword" id="doc-ipt-pwd-3" placeholder="确认新密码">
+                        </div>
+
+                        <p><button type="submit" style="width: 100%;" class="am-btn am-btn-primary">修 改</button></p>
+                    </fieldset>
+                </form>
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel ">
+                <div class="am-alert am-alert-success" data-am-alert>
+                    <button type="button" class="am-close">&times;</button>
+                    <p>修改您的密钥，密钥不要告诉任何人</p>
+                </div>
+                <form class="am-form" accept="" method="post" id="updatekeyform">
+                    <fieldset>
+                        <input type="hidden" name="usa" value="key">
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-1">当前密钥</label>
+                            <input type="text" readonly="readonly" name="oldkey" id="doc-ipt-pwd-1" placeholder="当前密钥" value="<?php echo session('user')->key;?>">
+                        </div>
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2">新密钥</label>
+                            <input type="text" name="key" id="doc-ipt-pwd-2" placeholder="请输入新密钥" value="">
+                        </div>
+                        <p><button type="submit" style="width: 100%;" class="am-btn am-btn-primary">修 改</button></p>
+                    </fieldset>
+                </form>
+            </div>
+            <div data-tab-panel-2 class="am-tab-panel ">
+                <div class="am-alert am-alert-success" data-am-alert>
+                    <button type="button" class="am-close">&times;</button>
+                    <p>修改密码管理器登录手机号</p>
+                </div>
+                <form class="am-form" accept="" method="post" id="updatephoneform">
+                    <fieldset>
+                        <input type="hidden" name="usa" value="phone">
+                        <div class="am-form-group">
+                            <label for="oldphone">当前手机号</label>
+                            <input type="text" disabled="disabled" name="oldphone" id="oldphone" placeholder="当前手机号" value="<?php echo session('user')->phone;?>">
+                        </div>
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2">新手机号</label>
+                            <input type="text" name="phone" id="doc-ipt-pwd-2" placeholder="新手机号" value="" onchange="checkPhone($(this).val())">
+                        </div>
+                        <label for="code">验证码:</label>
+                        <div class="am-input-group">
+                            <input type="text" class="am-form-field" id="code" name="code" value="" autocomplete="off" placeholder="请输入手机号验证码">
+                    <span class="am-input-group-btn">
+                      <button class="am-btn am-btn-primary" disabled="disabled" type="button" id="sendCodeButton">发送验证码</button>
+                    </span>
+                        </div>
+
+                        <p><button type="submit" id="changephonesubmit" style="width: 100%;" disabled="disabled" class="am-btn am-btn-primary">修 改</button></p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{/block}
+
+{block name='javascript'}
+<script>
+    {if condition="time()-session('time')<60"}
+        $("#sendCodeButton").attr('disabled', 'disabled');
+        for(i=1;i<=<?php echo 60-(time()-session('time'));?>;i++) {
+            window.setTimeout("update_p(" + i + ","+<?php echo 60-(time()-session('time'));?>+")", i * 1000);
+        }
+    {/if}
+</script>
+{/block}

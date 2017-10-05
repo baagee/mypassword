@@ -1,0 +1,91 @@
+{extend name="common" /}
+
+{block name="content_main"}
+
+<section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }'>
+    <div class="am-alert am-alert-success" data-am-alert>
+        <button type="button" class="am-close">&times;</button>
+        <p>{$info}</p>
+    </div>
+    <input type="text" class="am-form-field" name="name" autocomplete="off" onkeyup="filter($(this).val())" placeholder="输入关键字筛选过滤">
+    <hr>
+    {volist name="list" id="pa"}
+        <dl class="am-accordion-item" id="dhdfvs_{$pa['uuid']}">
+            <dt class="am-accordion-title">
+                {$pa['name']}
+            </dt>
+            <dd class="am-accordion-bd am-collapse">
+                <div class="am-accordion-content">
+                    <table class="am-table am-table-bordered">
+                        <tr>
+                            <td style="width: 28%">用户名</td>
+                            <td class="usernameiiiiiii" data-clipboard-text='{$pa['username']}'>{$pa['username']}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 28%">密码</td>
+                            <td class="passiiiii" style="word-break:break-all; word-wrap:break-word;" data-clipboard-text='{$pa['password']}'>{$pa['password']}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 28%">密码强度</td>
+                            <td>
+                                <div class="am-progress passinfo" style="margin-bottom: 0">
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-bd">
+                            备注说明：{$pa['remark']}
+                            <br>
+                            创建时间：{$pa['create_at']}
+                            <br>
+                            修改时间：{$pa['update_at']}
+                        </div>
+                    </div>
+                    <!-- 操作 -->
+                    <div class="am-btn-group" style="width: 100%">
+                        <button type="button" onclick="deleteThis('{$pa['uuid']}')" class="am-btn am-btn-danger am-radius" style="width: 50%">删除</button>
+                        <a href="/pass/edit/{$pa['uuid']}.html" class="am-btn am-btn-success am-radius" style="width: 50%">修改</a>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+{/volist}
+
+{/block}
+
+{block name='javascript'}
+
+<script>
+    // 首次提示框
+    if($.cookie('showInfo')!=1){
+        // 弹框弹出时背景不能滚动
+        $('html,body').css({
+            height: '100%',
+            overflow: 'hidden'
+        });
+        layer.open({
+            content: '温馨提示：<br>点击用户名，密码即可快速复制哦!<br>部分手机浏览器不支持快速复制！'
+            ,btn: '明白了，不再提示'
+            ,yes: function(index){
+                $.cookie('showInfo',1,{expires:30*3600*24*12*50});
+                layer.close(index);
+            }
+            ,end:function(){
+                $('html,body').css({
+                    height: '',
+                    overflow: ''
+                });
+            }
+        });
+    }
+
+    // 密码强度检测
+    $(function(){
+        $.each($(".passiiiii"),function(index,item){
+            $($(".passinfo")[index]).html(CheckIntensity($(item).text()));
+        })
+    });
+</script>
+{/block}
