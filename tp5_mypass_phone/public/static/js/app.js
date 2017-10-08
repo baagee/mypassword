@@ -2,38 +2,29 @@
  * Created by BaAGee on 2017/10/4.
  */
 
-// 点击复制
-var clipboard_pass = new Clipboard('.passiiiii');
-var clipboard_user = new Clipboard('.usernameiiiiiii');
-clipboard_pass.on('success', function(e) {
-    layer.open({
-        content:'密码复制成功!',
-        skin:'msg',
-        time:2
-    })
-});
-clipboard_user.on('success', function(e) {
-    layer.open({
-        content:'用户名复制成功!',
-        skin:'msg',
-        time:2
-    })
-});
-clipboard_pass.on('error', function(e) {
-    layer.open({
-        content:'密码复制失败!',
-        skin:'msg',
-        time:2
-    })
-});
-clipboard_user.on('error', function(e) {
-    layer.open({
-        content:'用户名复制失败!',
-        skin:'msg',
-        time:2
-    })
-});
+/**
+ * 点击复制
+  */
+function copy(className){
+    var clipboard = new Clipboard(className);
+    clipboard.on('success', function(e) {
+        layer.open({
+            content:'用户名复制成功!',
+            skin:'msg',
+            time:2
+        })
+    });
+    clipboard.on('error', function(e) {
+        layer.open({
+            content:'密码复制失败!',
+            skin:'msg',
+            time:2
+        })
+    });
+}
 
+$(".passiiiii").bind('click',copy('.passiiiii'));
+$(".usernameiiiiiii").bind('click',copy('.usernameiiiiiii'));
 
 
 /**
@@ -86,7 +77,6 @@ function CheckIntensity(string) {
     $("#qazppp").html(html);
     return html;
 }
-
 
 // 检查手机号
 function checkPhone(phone){
@@ -221,9 +211,7 @@ $("#register_form").submit(function(){
             });
         })
         .always(function() {
-
         });
-
     return false;
 });
 
@@ -267,9 +255,7 @@ $("#login_form").submit(function(){
             });
         })
         .always(function() {
-
         });
-
     return false;
 });
 
@@ -310,12 +296,14 @@ $("#addpassform").submit(function(){
         .always(function() {
             $('button[type="submit"]').removeAttr('disabled');
         });
-
     return false;
 });
 
 
-// 删除密码
+/**
+ *  删除密码
+ * @param pid 密码id
+ */
 function deleteThis(pid){
     layer.open({
         content: '您确定要删除这个密码吗？'
@@ -387,7 +375,6 @@ $("#editpassform").submit(function(){
         })
         .always(function() {
         });
-
     return false;
 });
 
@@ -438,7 +425,6 @@ $("#updatepassform").submit(function(){
         })
         .always(function() {
         });
-
     return false;
 });
 
@@ -482,7 +468,6 @@ $("#updatekeyform").submit(function(){
         })
         .always(function() {
         });
-
     return false;
 });
 
@@ -520,6 +505,5 @@ $("#updatephoneform").submit(function(){
         })
         .always(function() {
         });
-
     return false;
 });

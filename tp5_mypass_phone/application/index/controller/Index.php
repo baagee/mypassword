@@ -26,7 +26,7 @@ class Index extends Controller{
      */
     public function sendCode(){
         if($this->request->isAjax()){
-            $validate=Validate::make(['phone'=>"/^1[34578]\d{9}$/"]);
+            $validate=Validate::make(['phone'=>"require|/^1[34578]\d{9}$/"]);
             if(!$validate->check(request()->param())){
                 return json(['status'=>0,'msg'=>'此手机号格式不正确']);
             }
@@ -35,18 +35,15 @@ class Index extends Controller{
                 /*未过期*/
                 if($sendTime+60>time()){
                     return json(['status'=>0,'msg'=>'一分钟内多次操作']);
-                }else{
-                    session('time',time());
                 }
-            }else{
-                // 记录本次时间
-                session('time',time());
             }
             $sms = new smsSend(config('phone_ode')['AccessKeyId'],config('phone_ode')['accessKeySecret']);
             $code=createCode();
             session('code',$code);
             $response = $sms->sendSms("蘑菇头密码管理", config('phone_ode')['templateCode'], input('phone'), array("code"=>$code), '');
             if($response->Message=='OK'){
+                // 记录本次时间
+                session('time',time());
                 return json(['status'=>1,'msg'=>'发送成功']);
             }else{
                 return json(['status'=>0,'msg'=>'发送失败:'.$response->Message]);
@@ -86,6 +83,8 @@ class Index extends Controller{
      */
     public function logout(){
         session('user',null);
+        session('code',null);
+        session('time',null);
         $this->redirect('/user/login');
     }
 
@@ -122,7 +121,7 @@ class Index extends Controller{
     public function checkPhone(){
         if($this->request->isAjax()){
 //            使用tp5验证器自定义验证规则验证
-            $validate=Validate::make(['phone'=>"/^1[34578]\d{9}$/"]);
+            $validate=Validate::make(['phone'=>"require|/^1[34578]\d{9}$/"]);
             if(!$validate->check(request()->param())){
                 return json(['status'=>0,'msg'=>'此手机号格式不正确']);
             }
@@ -225,7 +224,7 @@ class Index extends Controller{
 
     /**
      * 个人设置
-     * @return \think\response\View
+     * @return \think\response\Json|\think\response\View
      */
     public function personalSet(){
         if($this->request->isAjax()){
@@ -265,11 +264,8 @@ class Index extends Controller{
             }else{
                 return json(['status'=>0,'msg'=>'修改失败']);
             }
-
         }else{
             return view('personalset',['title'=>'个人设置']);
         }
     }
-
-
 }
