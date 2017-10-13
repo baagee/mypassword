@@ -2,4 +2,4 @@
 
 ## 当初用的tp3写的email版本，后来用tp5重写了一个email版本，但是有时候邮件收不到（这个是163smtp邮件服务器问题），于是就改成了手机验证码方式登录。以后可能会更新tp5的这两个版本。
 
-### 测试地址：http://luoli.baagee.top/pass/
+### 测试地址：http://pass.baagee.vip
