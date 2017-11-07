@@ -9,14 +9,14 @@ function copy(className){
     var clipboard = new Clipboard(className);
     clipboard.on('success', function(e) {
         layer.open({
-            content:'用户名复制成功!',
+            content:'复制成功!',
             skin:'msg',
             time:2
         })
     });
     clipboard.on('error', function(e) {
         layer.open({
-            content:'密码复制失败!',
+            content:'复制失败!',
             skin:'msg',
             time:2
         })
