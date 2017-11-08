@@ -7,16 +7,21 @@
   */
 function copy(className){
     var clipboard = new Clipboard(className);
+    if(className==='.passiiiii'){
+        var item='密码';
+    }else if(className==='.usernameiiiiiii'){
+        var item='用户名';
+    }
     clipboard.on('success', function(e) {
         layer.open({
-            content:'复制成功!',
+            content:item+'复制成功!',
             skin:'msg',
             time:2
         })
     });
     clipboard.on('error', function(e) {
         layer.open({
-            content:'复制失败!',
+            content:item+'复制失败!',
             skin:'msg',
             time:2
         })
